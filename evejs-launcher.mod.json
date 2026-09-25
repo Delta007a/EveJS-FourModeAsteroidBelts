@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 3,
+  "id": "fourmodeasteroidbelts",
+  "displayName": "FourModeAsteroidBelts",
+  "version": "0.2.0",
+  "description": "Four asteroid-belt distribution modes and belt volume controls.",
+  "kind": "loader",
+  "supportedBackends": [
+    "native"
+  ],
+  "activation": {
+    "strategy": "loader_rename"
+  },
+  "restart": "game_server",
+  "compatibility": {
+    "evejsVersions": [
+      "0.12.8",
+      "0.12.9"
+    ]
+  },
+  "settings": {
+    "schemaVersion": 1,
+    "files": [
+      {
+        "id": "beltPolicy",
+        "base": "evejs",
+        "path": "config/fourModeAsteroidBelts.json",
+        "format": "json"
+      }
+    ],
+    "fields": [
+      {
+        "id": "asteroidBeltOreDistribution",
+        "label": "Belt ore distribution",
+        "type": "choice",
+        "default": "evejs-fixed",
+        "restart": "game_server",
+        "file": "beltPolicy",
+        "key": [
+          "asteroidBeltOreDistribution"
+        ],
+        "choices": [
+          {
+            "value": "retail",
+            "label": "Retail"
+          },
+          {
+            "value": "evejs-fixed",
+            "label": "EveJS fixed"
+          },
+          {
+            "value": "pre-scarcity",
+            "label": "Pre-scarcity"
+          },
+          {
+            "value": "pre-scarcity-enriched",
+            "label": "Pre-scarcity enriched"
+          }
+        ]
+      },
+      {
+        "id": "miningBeltVolumeMultiplier",
+        "label": "Belt volume multiplier",
+        "type": "number",
+        "default": 1,
+        "minimum": 0.01,
+        "maximum": 1000,
+        "restart": "game_server",
+        "file": "beltPolicy",
+        "key": [
+          "miningBeltVolumeMultiplier"
+        ]
+      }
+    ]
+  },
+  "updates": {
+    "provider": "github",
+    "repository": "Delta007a/EveJS-FourModeAsteroidBelts",
+    "asset": "EveJS-FourModeAsteroidBelts-{version}.zip",
+    "channel": "stable",
+    "tagPrefix": "v",
+    "preserveFiles": []
+  }
+}
