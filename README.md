@@ -4,7 +4,7 @@ Choose Retail, EveJS fixed, Pre-scarcity or Pre-scarcity enriched asteroid-belt 
 
 ## Install and configure
 
-Use **EveJS Launcher v1.0.65 → Mods → Add ZIP**, select the release ZIP, enable the mod and restart the Game server. The release ZIP starts disabled. **Configure** exposes both settings and writes `config/fourModeAsteroidBelts.json` in the EveJS root. The defaults are EveJS fixed distribution and 1× volume. Restart the server after Launcher Configure changes.
+Use **EveJS Launcher v1.0.66 → Mods → Add ZIP**, select the release ZIP, enable the mod and restart the Game server. The release ZIP starts disabled. **Configure** exposes both settings and writes `config/fourModeAsteroidBelts.json` in the EveJS root. The defaults are EveJS fixed distribution and 1× volume. Restart the server after Launcher Configure changes.
 
 Staff can use `/beltmode` and `/beltvolume` at runtime. Those commands persist the same mod-owned JSON policy and may refresh belt state. Process environment overrides remain authoritative: `EVEJS_ASTEROID_BELT_ORE_DISTRIBUTION` and `EVEJS_MINING_BELT_VOLUME_MULTIPLIER` take precedence over persisted JSON, followed by native defaults. A manual Native server can preload `mods/fourModeAsteroidBelts/loader.js` with Node `--require` before EveJS modules load.
 
