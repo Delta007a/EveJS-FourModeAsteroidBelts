@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "id": "fourmodeasteroidbelts",
   "displayName": "FourModeAsteroidBelts",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Four asteroid-belt distribution modes and belt volume controls.",
   "kind": "loader",
   "supportedBackends": [
@@ -15,7 +15,9 @@
   "compatibility": {
     "evejsVersions": [
       "0.12.8",
-      "0.12.9"
+      "0.12.9",
+      "261018.1",
+      "261028.1"
     ]
   },
   "settings": {

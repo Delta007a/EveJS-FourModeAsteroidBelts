@@ -64,7 +64,7 @@ function install(options = {}) {
   const coordinator = createCoordinator(options.coordinatorOptions);
   const commands = beltCommands.create({ policy, coordinator, runtimeRoot });
   const api = Object.freeze({
-    version: "0.2.0",
+    version: "0.2.2",
     policy,
     coordinator,
     createOreDistribution: oreDistribution.create,

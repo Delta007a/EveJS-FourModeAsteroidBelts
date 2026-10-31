@@ -1,17 +1,28 @@
-# FourModeAsteroidBelts 0.2.0
+# FourModeAsteroidBelts 0.2.2
 
-Choose Retail, EveJS fixed, Pre-scarcity or Pre-scarcity enriched asteroid-belt ore distribution, and scale belt rock volume. Supports native EveJS 0.12.8 and final 0.12.9. It affects belts, not Moon Ore anomalies.
+Supports native EveJS `0.12.8`, `0.12.9`, `261018.1`, `261028.1`. The 261028.1 port was checked with **EveJS Launcher 1.0.76** and EVE client **build 3396210**. The user confirmed all four mods passed in-game verification on 2026-10-31; the automated port checks remain separate evidence. Older declared server support is retained, without claiming a new full certification of those versions.
 
-## Install and configure
+## Install and update
 
-Use **EveJS Launcher v1.0.66 → Mods → Add ZIP**, select the release ZIP, enable the mod and restart the Game server. The release ZIP starts disabled. **Configure** exposes both settings and writes `config/fourModeAsteroidBelts.json` in the EveJS root. The defaults are EveJS fixed distribution and 1× volume. Restart the server after Launcher Configure changes.
+Download `EveJS-FourModeAsteroidBelts-0.2.2.zip` from [Releases](https://github.com/Delta007a/EveJS-FourModeAsteroidBelts/releases/latest). Use Launcher **Mods > Add ZIP**, enable the mod and open **Configure**. Release ZIPs contain `loader.js.disabled` and start disabled. Configuration changes require a Game server restart; transient client features require a fresh client connection.
 
-Staff can use `/beltmode` and `/beltvolume` at runtime. Those commands persist the same mod-owned JSON policy and may refresh belt state. Process environment overrides remain authoritative: `EVEJS_ASTEROID_BELT_ORE_DISTRIBUTION` and `EVEJS_MINING_BELT_VOLUME_MULTIPLIER` take precedence over persisted JSON, followed by native defaults. A manual Native server can preload `mods/fourModeAsteroidBelts/loader.js` with Node `--require` before EveJS modules load.
+The package contains no personal `settings.json`, `.env`, runtime database or client archive. Launcher carries forward package-local files declared by the settings schema. Back up personal configuration before updating or removing a mod. For legacy customized source installations, transfer settings to the documented JSON configuration before updating; source files are replaced by updates.
 
-## Compatibility and removal
+## Behavior and defaults
 
-The loader transforms only its two owned belt seams in memory and overlays the chat command exports. Final 0.12.9 added `/fit` and `/unfit`; the belt commands coexist with them. Launcher Remove removes the package but leaves the EveJS-root belt policy file for reuse. Delete that file manually only if you no longer want the saved preferences.
+Four distribution modes: `retail`, `evejs-fixed`, `pre-scarcity`, `pre-scarcity-enriched`.
 
-Final 0.12.9 certification: targeted transform/command verifier passed, including fail-closed conflicts and preservation of unrelated source edits; four-loader composition passed. Final live gameplay remains to be checked.
+| Setting | Default |
+| --- | --- |
+| Distribution | evejs-fixed |
+| Belt volume multiplier | 1x |
 
-License: AGPL-3.0-only. EveJS itself is AGPL-3.0-only; no vendor source is included in this package.
+Configure writes `config/fourModeAsteroidBelts.json` under the EveJS root; no personal policy file is shipped. This file is outside the package and remains after an update/removal. Process environment `EVEJS_ASTEROID_BELT_ORE_DISTRIBUTION` / `EVEJS_MINING_BELT_VOLUME_MULTIPLIER` takes precedence over persisted policy, then defaults. The multiplier range is 0.01 through 1000.
+
+Staff commands `/beltmode` and `/beltvolume` share the persisted policy and live belt refresh behavior. Belt-only scaling affects normal asteroid belts; Moon/Homefront rocks, missions, anomalies and unrelated resource entities are outside that scope. New upstream mining notifications and chat commands are retained. Source transforms operate in memory on owned semantic seams.
+
+## Removal
+
+Disable in Launcher and use your normal Game server restart procedure. Remove deletes the package but leaves the root policy file for reuse.
+
+License: AGPL-3.0-only. No vendor source is included.
