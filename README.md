@@ -1,10 +1,14 @@
-# FourModeAsteroidBelts 0.2.2
+# FourModeAsteroidBelts 0.2.3
 
-Supports native EveJS `0.12.8`, `0.12.9`, `261018.1`, `261028.1`. The 261028.1 port was checked with **EveJS Launcher 1.0.76** and EVE client **build 3396210**. The user confirmed all four mods passed in-game verification on 2026-10-31; the automated port checks remain separate evidence. Older declared server support is retained, without claiming a new full certification of those versions.
+On EveJS 261108.1, accepted belt generations retain their composition and geometry through ordinary reloads. Fresh retail belts use the native counts where available. Mode or volume changes with refresh rebuild normal belts in the current system. Other systems keep their accepted generations until a local refresh or native downtime reset.
+
+Supports native EveJS `0.12.8`, `0.12.9`, `261018.1`, `261028.1`, `261108.1`. The 261028.1 port was checked with **EveJS Launcher 1.0.76** and EVE client **build 3396210**. The user confirmed all four mods passed in-game verification on 2026-10-31; the automated port checks remain separate evidence. Older declared server support is retained, without claiming a new full certification of those versions.
+
+The maintainer confirmed the four updated mods work together in-game on EveJS 261108.1.
 
 ## Install and update
 
-Download `EveJS-FourModeAsteroidBelts-0.2.2.zip` from [Releases](https://github.com/Delta007a/EveJS-FourModeAsteroidBelts/releases/latest). Use Launcher **Mods > Add ZIP**, enable the mod and open **Configure**. Release ZIPs contain `loader.js.disabled` and start disabled. Configuration changes require a Game server restart; transient client features require a fresh client connection.
+Download `EveJS-FourModeAsteroidBelts-0.2.3.zip` from [Releases](https://github.com/Delta007a/EveJS-FourModeAsteroidBelts/releases/latest). Use Launcher **Mods > Add ZIP**, enable the mod and open **Configure**. Release ZIPs contain `loader.js.disabled` and start disabled. Configuration changes require a Game server restart; transient client features require a fresh client connection.
 
 The package contains no personal `settings.json`, `.env`, runtime database or client archive. Launcher carries forward package-local files declared by the settings schema. Back up personal configuration before updating or removing a mod. For legacy customized source installations, transfer settings to the documented JSON configuration before updating; source files are replaced by updates.
 
