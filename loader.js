@@ -64,7 +64,7 @@ function install(options = {}) {
   const coordinator = createCoordinator(options.coordinatorOptions);
   const commands = beltCommands.create({ policy, coordinator, runtimeRoot });
   const api = Object.freeze({
-    version: "0.2.3",
+    version: "0.2.5",
     policy,
     coordinator,
     createOreDistribution: oreDistribution.create,
@@ -82,7 +82,10 @@ function install(options = {}) {
     if (targetName === "asteroidService") return compileTransformed(targets.asteroidService.filename, parent, transforms.transformAsteroidService);
     if (targetName === "miningRuntimeState") return compileTransformed(targets.miningRuntimeState.filename, parent, transforms.transformMiningRuntimeState);
     if (targetName === "chatCommands") {
-      const exported = previousLoad.apply(this, arguments);
+      const target = targets.chatCommands;
+      const exported = chatOverlay.usesClientDispatcher(target.source)
+        ? compileTransformed(target.filename, parent, chatOverlay.transformClientDispatch)
+        : previousLoad.apply(this, arguments);
       if (!exported[chatOverlay.OVERLAY_MARKER]) chatOverlay.install(exported, { runtimeRoot, commands });
       return exported;
     }
