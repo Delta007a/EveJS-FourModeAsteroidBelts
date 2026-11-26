@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "id": "fourmodeasteroidbelts",
   "displayName": "FourModeAsteroidBelts",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Four asteroid-belt distribution modes and belt volume controls.",
   "kind": "loader",
   "supportedBackends": [
@@ -19,7 +19,8 @@
       "261018.1",
       "261028.1",
       "261108.1",
-      "261115.2"
+      "261115.2",
+      "261125.3"
     ]
   },
   "settings": {

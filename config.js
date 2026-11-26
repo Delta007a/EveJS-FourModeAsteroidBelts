@@ -85,9 +85,10 @@ function createPolicyStore(options = {}) {
   }
 
   function getSnapshot() {
+    // getStatus checks the config path to label the source for chat commands.
     return Object.freeze({
-      mode: getStatus("asteroidBeltOreDistribution").activeValue,
-      volumeMultiplier: getStatus("miningBeltVolumeMultiplier").activeValue,
+      mode: getEnvironmentValue("asteroidBeltOreDistribution") ?? persisted.asteroidBeltOreDistribution,
+      volumeMultiplier: getEnvironmentValue("miningBeltVolumeMultiplier") ?? persisted.miningBeltVolumeMultiplier,
     });
   }
 
